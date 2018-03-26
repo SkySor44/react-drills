@@ -3,16 +3,27 @@ import logo from './logo.svg';
 import './App.css';
 
 class App extends Component {
-  render() {
+ constructor(){
+   super();
+   this.state = {
+     codeList: ["Javascript", "React", "Git", "HTML", "CSS"]
+   }
+ }
+  
+
+render() {
+  var finalCode = this.state.codeList.map( (e, i) => {
+    return (
+      <div key = {i}>
+        <h3>{e}</h3>
+      </div>
+    )
+  })
+
+
     return (
       <div className="App">
-        <div className="App-header">
-          <img src={logo} className="App-logo" alt="logo" />
-          <h2>Welcome to React</h2>
-        </div>
-        <p className="App-intro">
-          To get started, edit <code>src/App.js</code> and save to reload.
-        </p>
+        <h3>{finalCode}</h3>
       </div>
     );
   }
